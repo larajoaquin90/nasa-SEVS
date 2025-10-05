@@ -1,17 +1,17 @@
 import * as THREE from 'https://unpkg.com/three@0.164.1/build/three.module.js';
 
-// Crear la escena
+// CREACIÓN DE ESCENA
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0xbfd1e5);
+scene.background = new THREE.Color("black");
 
-// Crear la cámara
+// CREACIÓN DE CAMARA
 const camera = new THREE.PerspectiveCamera(
-  75, window.innerWidth / window.innerHeight, 0.1, 1000
+  95, window.innerWidth / window.innerHeight, 0.1, 1000
 );
-camera.position.set(4, 4, 8);
+camera.position.set(6, 6, 8);
 camera.lookAt(0, 1, 0);
 
-// Crear el renderizador
+// CREACIÓN DE RENDERIZADOR
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
@@ -24,12 +24,13 @@ const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
 directionalLight.position.set(5, 10, 7.5);
 scene.add(directionalLight);
 
-// Crear el cuerpo de la casa (cubo)
-const geometryCasa = new THREE.BoxGeometry(2, 1.5, 2);
-const materialCasa = new THREE.MeshStandardMaterial({ color: 0xf5deb3 });
-const casa = new THREE.Mesh(geometryCasa, materialCasa);
-casa.position.y = 0.75;
-scene.add(casa);
+//Creación de Domo 
+const geometryDomo = new THREE.CircleGeometry(2, 32, 0, Math.PI);
+const materialDomo = new THREE.MeshStandardMaterial({ color: "grey", side: THREE.Doubleside });
+const Domo = new THREE.Mesh(geometryDomo, materialDomo);
+scene.add(Domo);
+Domo.position.y = 1;
+Domo.rotation.y = -Math.PI / 2;
 
 // Crear el techo (pirámide)
 const geometryTecho = new THREE.ConeGeometry(1.4, 1, 4);
@@ -47,8 +48,8 @@ puerta.position.set(0, 0.35, 1.025);
 scene.add(puerta);
 
 // Crear el suelo
-const geometrySuelo = new THREE.PlaneGeometry(10, 10);
-const materialSuelo = new THREE.MeshStandardMaterial({ color: 0x228b22 });
+const geometrySuelo = new THREE.PlaneGeometry(15, 15);
+const materialSuelo = new THREE.MeshStandardMaterial({ color: "red" });
 const suelo = new THREE.Mesh(geometrySuelo, materialSuelo);
 suelo.rotation.x = -Math.PI / 2;
 scene.add(suelo);
