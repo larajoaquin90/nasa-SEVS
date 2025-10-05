@@ -9,7 +9,7 @@ const camera = new THREE.PerspectiveCamera(
   75, window.innerWidth / window.innerHeight, 0.1, 1000
 );
 camera.position.set(0, 18, 0);
-camera.lookAt(3, 0, 0);
+camera.lookAt(0, 0, 0);
 
 // CREACIÓN DE RENDERIZADOR
 const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -26,47 +26,49 @@ scene.add(directionalLight);
 
 // Creacion de Domo
 const geometryDomo = new THREE.SphereGeometry(2, 32, 32, 0, Math.PI * 2, 0, Math.PI / 2);
-const materialDomo = new THREE.MeshStandardMaterial({ color: "grey", side: THREE.DoubleSide });
+const materialDomo = new THREE.MeshStandardMaterial({ color: "#c0c0c0", side: THREE.DoubleSide });
 const Domo = new THREE.Mesh(geometryDomo, materialDomo);
 scene.add(Domo);
 Domo.position.y = 1;
+Domo.position.x = 2;
+Domo.position.z = -2;
 Domo.rotation.x = 0;
 
 // Creacion de Domopt.2
 const geometryDomo1 = new THREE.SphereGeometry(1, 64, 64, 0, Math.PI * 2, 0, Math.PI / 2);
-const materialDomo1 = new THREE.MeshStandardMaterial({ color: "grey", side: THREE.DoubleSide });
+const materialDomo1 = new THREE.MeshStandardMaterial({ color: "#c0c0c0", side: THREE.DoubleSide });
 const Domo1 = new THREE.Mesh(geometryDomo1, materialDomo1);
 scene.add(Domo1);
 Domo1.position.y = 1;
-Domo1.position.x = 1.5;
-Domo1.position.z = -1.5;
+Domo1.position.x = 3.2;
+Domo1.position.z = -3.5;
 
 // Creacion de Domopt.3
 const geometryDomo2 = new THREE.SphereGeometry(1, 64, 64, 0, Math.PI * 2, 0, Math.PI / 2);
-const materialDomo2 = new THREE.MeshStandardMaterial({ color: "grey", side: THREE.DoubleSide });
+const materialDomo2 = new THREE.MeshStandardMaterial({ color: "#c0c0c0", side: THREE.DoubleSide });
 const Domo2 = new THREE.Mesh(geometryDomo2, materialDomo2);
 scene.add(Domo2);
 Domo2.position.y = 1;
-Domo2.position.x = -1.5;
-Domo2.position.z = -1.5;
+Domo2.position.x = 0.8;
+Domo2.position.z = -3.5;
 
 // Creacion de Domopt.4
 const geometryDomo3 = new THREE.SphereGeometry(1, 64, 64, 0, Math.PI * 2, 0, Math.PI / 2);
-const materialDomo3 = new THREE.MeshStandardMaterial({ color: "grey", side: THREE.DoubleSide });
+const materialDomo3 = new THREE.MeshStandardMaterial({ color: "#c0c0c0", side: THREE.DoubleSide });
 const Domo3 = new THREE.Mesh(geometryDomo3, materialDomo3);
 scene.add(Domo3);
 Domo3.position.y = 1;
-Domo3.position.x = 1.5;
-Domo3.position.z = 1.5;
+Domo3.position.x = 3.2;
+Domo3.position.z = -0.8;
 
 // CREACION DE DOMO (BASICO)pt.3
 const geometryDomo4 = new THREE.SphereGeometry(1, 64, 64, 0, Math.PI * 2, 0, Math.PI / 2);
-const materialDomo4 = new THREE.MeshStandardMaterial({ color: "grey", side: THREE.DoubleSide });
+const materialDomo4 = new THREE.MeshStandardMaterial({ color: "#c0c0c0", side: THREE.DoubleSide });
 const Domo4 = new THREE.Mesh(geometryDomo4, materialDomo4);
 scene.add(Domo4);
 Domo4.position.y = 1;
-Domo4.position.x = -1.5;
-Domo4.position.z = 1.5;
+Domo4.position.x = 0.8;
+Domo4.position.z = -0.8;
 
 // Crear el techo (pirámide)
 // const geometryTecho = new THREE.ConeGeometry(1.4, 1, 4);
