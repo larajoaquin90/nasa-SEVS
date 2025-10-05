@@ -2,7 +2,7 @@ import * as THREE from 'https://unpkg.com/three@0.164.1/build/three.module.js';
 
 // CREACIÓN DE ESCENA
 const scene = new THREE.Scene();
-scene.background = new THREE.Color("black");
+scene.background = new THREE.Color("white");
 
 // CREACIÓN DE CAMARA
 const camera = new THREE.PerspectiveCamera(
@@ -24,13 +24,13 @@ const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
 directionalLight.position.set(5, 10, 7.5);
 scene.add(directionalLight);
 
-//Creación de Domo 
-const geometryDomo = new THREE.CircleGeometry(2, 32, 0, Math.PI);
-const materialDomo = new THREE.MeshStandardMaterial({ color: "grey", side: THREE.Doubleside });
+// Creacion de Domo
+const geometryDomo = new THREE.SphereGeometry(2, 32, 32, 0, Math.PI * 2, 0, Math.PI / 2);
+const materialDomo = new THREE.MeshStandardMaterial({ color: "grey", side: THREE.DoubleSide });
 const Domo = new THREE.Mesh(geometryDomo, materialDomo);
 scene.add(Domo);
 Domo.position.y = 1;
-Domo.rotation.y = -Math.PI / 2;
+Domo.rotation.y = 0;
 
 // Crear el techo (pirámide)
 const geometryTecho = new THREE.ConeGeometry(1.4, 1, 4);
@@ -49,7 +49,7 @@ scene.add(puerta);
 
 // Crear el suelo
 const geometrySuelo = new THREE.PlaneGeometry(15, 15);
-const materialSuelo = new THREE.MeshStandardMaterial({ color: "red" });
+const materialSuelo = new THREE.MeshStandardMaterial({ color: "#8b0000" });
 const suelo = new THREE.Mesh(geometrySuelo, materialSuelo);
 suelo.rotation.x = -Math.PI / 2;
 scene.add(suelo);
